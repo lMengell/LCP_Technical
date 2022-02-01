@@ -1,0 +1,24 @@
+<h3>{{isNew ? "Add Client Details" : "Edit Client Details"}}</h3>
+
+<div class="contact-details-form">
+    <div class="contact-details-column">
+        <p>First Name:</p>
+        <input [ngClass]="showErrorClass(clientDetail.firstName)" [(ngModel)]="clientDetail.firstName" type="text" />
+
+        <p>Last Name:</p>
+        <input [ngClass]="showErrorClass(clientDetail.lastName)" [(ngModel)]="clientDetail.lastName" type="text" />
+    </div>
+
+    <div class="contact-details-column">
+        <p>Email Address:</p>
+        <input [ngClass]="showErrorClass(clientDetail.emailAddress)" [(ngModel)]="clientDetail.emailAddress" type="text" />
+
+        <p>Phone Number: </p>
+        <input [ngClass]="showErrorClass(clientDetail.phoneNumber)" [(ngModel)]="clientDetail.phoneNumber" type="text" />
+    </div>
+</div>
+
+<div class="contact-detail-form-buttons">
+    <button (click)="save($event)">Save</button>
+    <button (click)="cancel($event)">Cancel</button>
+</div>

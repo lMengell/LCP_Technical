@@ -1,0 +1,58 @@
+<div class="welcome-message">
+    <h1>Hello LCP!</h1>
+
+    <p>Welcome to the Lane Clark and Peacock Technical Test. Built with:</p>
+    <ul>
+        <li><a href='https://get.asp.net/'>ASP.NET Core</a> and <a href='https://msdn.microsoft.com/en-us/library/67ef8sbd.aspx'>C#</a> for cross-platform server-side code</li>
+        <li><a href='https://angular.io/'>Angular</a> and <a href='http://www.typescriptlang.org/'>TypeScript</a> for client-side code</li>
+        <li><a href='http://getbootstrap.com/'>Bootstrap</a> for layout and styling</li>
+    </ul>
+</div>
+
+<div class="add-or-edit-client">
+    <add-or-edit-client *ngIf="updatedClientDetail"
+                        [(clientDetail)]="updatedClientDetail"
+                        [showErrors]="showErrors"
+                        [isNew]="isNewClientDetail"
+                        (onSave)="onClientDetailSave($event)">
+    </add-or-edit-client>
+</div>
+
+<div class="client-details-table">
+    <div class="client-details-table-header">
+        <h2>Client Details</h2>
+        <button (click)="addNewClientDetail($event)" class="btn-primary">+ Add Client Details</button>
+    </div>
+
+    <div>
+        <p>First Name:</p>
+        <input [(ngModel)]="firstNameSearch" (input)="search($event)" type="text" />
+
+        <p>Last Name:</p>
+        <input [(ngModel)]="lastNameSearch" (input)="search($event)" type="text" />
+    </div>
+    
+    <div class="client-details-table" *ngIf="clientDetails.length" > 
+        <div class="client-detail-headers">
+            <div>First Name</div>
+            <div>Last Name</div>
+            <div class="long-column">Email Address</div>
+            <div>Phone Number</div>
+            <div>Last Updated</div>
+            <div>Edit</div>
+            <div>Delete</div>
+        </div>
+        <div class="client-detail-row" *ngFor="let clientDetail of clientDetails">
+            <div>{{clientDetail.firstName}}</div>
+            <div>{{clientDetail.lastName}}</div>
+            <div class="long-column">{{clientDetail.emailAddress}}</div>
+            <div>{{clientDetail.phoneNumber}}</div>
+            <div>{{dateToString(clientDetail.lastUpdatedAt)}}</div>
+            <div><button (click)="editClientDetail($event, clientDetail)">%</button></div>
+            <div><button (click)="deleteClientDetail($event, clientDetail.clientDetailsId)">-</button></div>
+        </div>
+    </div>
+    <div *ngIf="!clientDetails.length">
+        <p>No client details to show...</p>
+    </div>
+</div>

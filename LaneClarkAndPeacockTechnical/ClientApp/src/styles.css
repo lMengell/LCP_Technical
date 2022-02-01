@@ -1,0 +1,82 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Provide sufficient contrast against white background */
+body {
+    padding-bottom:50px;
+}
+
+a {
+  color: #0366d6;
+}
+
+code {
+  color: #e01a76;
+}
+
+.welcome-message {
+    margin-bottom:60px;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+  height:40px;
+  width:200px;
+}
+
+.client-details-table {
+    margin-top:10px;
+}
+
+.client-details-table-header {
+    display:flex;
+    justify-items: stretch;
+}
+
+.client-details-table-header button {
+    margin-left:auto;
+}
+
+.client-detail-headers {
+    background-color: lightgray;
+    display: flex;
+    font-weight: 600;
+}
+
+.client-detail-headers div {
+    width:13%;
+    text-align:center;
+}
+
+.client-detail-headers .long-column {
+    width: 20%;
+}
+
+.client-detail-row {
+    background-color: lightblue;
+    display: flex;
+}
+
+.client-detail-row div {
+    width: 13%;
+    text-align: center;
+}
+
+.client-detail-row .long-column {
+    width: 20%;
+}
+
+.client-detail-row button {
+    width:80px;
+    height:25px;
+    font-size:small;
+}
+
+.add-or-edit-client {
+    margin-bottom:60px;
+}
+
+.error {
+    background-color: pink;
+}
